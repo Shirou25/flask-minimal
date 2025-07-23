@@ -83,10 +83,6 @@ Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu 
 ```bash
    sudo systemctl status flask-app
 ```
-Jika berhasil, status akan terlihat seperti ini:
-   flask-app.service - Aplikasi Flask Minimal
-   Loaded: loaded (/etc/systemd/system/flask-app.service; enabled; ...)
-   Active: active (running)
 Jika statusnya "active (running)", berarti aplikasi Anda berhasil diatur untuk berjalan otomatis setelah reboot.
 
 ## Lisensi
