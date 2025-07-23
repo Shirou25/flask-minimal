@@ -8,6 +8,13 @@ Proyek awal Flask yang minimalis untuk membantu Anda dengan cepat membangun apli
 - Setup proyek yang sederhana dan intuitif tanpa kompleksitas berlebihan.
 - Mudah disesuaikan untuk pengembangan aplikasi web secara cepat.
 
+Prasyarat
+Sebelum memulai, pastikan Anda memiliki:
+
+Akses ke instance EC2 Ubuntu.
+Python 3 dan pip terinstal.
+Akses root atau sudo ke server.
+
 ## Persiapan
 ```bash
 sudo apt update
@@ -42,21 +49,25 @@ Aplikasi Flask akan berjalan, dan Anda bisa mengaksesnya melalui browser dengan 
 
 ## Usage
 
-This starter project is ready to be used as a foundation for building web applications. The app.py file contains all the Flask routes and logic, making it simple to expand and customize. You can add more templates, routes, or static files as needed.
+Menjalankan Aplikasi Flask Secara Otomatis Saat Reboot dengan systemd
+Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu di-reboot, ikuti langkah-langkah berikut:
 
-## Customization
-You can easily modify:
+1. Buat File Service systemd
+   Buat file service:
+   sudo nano /etc/systemd/system/flask-app.service
+   Tambahkan konfigurasi berikut:
+   
+   [Unit]
+Description=Aplikasi Flask Minimal
+After=network.target
 
- - The HTML structure in `templates/index.html`
- - The styling in `static/style.css`
- - The interactivity in `static/script.js`
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/flask-minimal
+Environment="PATH=/home/ubuntu/flask-minimal/venv/bin"
+ExecStart=/home/ubuntu/flask-minimal/venv/bin/python app.py
+Restart=always
 
-Feel free to update the app.py file to add your routes or any additional logic to fit your needs.
+[Install]
+WantedBy=multi-user.target
 
-## License
-This project is licensed under the MIT License.
-
-## Contributing
-Feel free to fork this repository and create pull requests if you have improvements or bug fixes. If you have any suggestions, open an issue, and we’ll discuss it!
-
-This project is built with simplicity and efficiency in mind, perfect for quickly starting small web apps or prototypes with minimal overhead.
