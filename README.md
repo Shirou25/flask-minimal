@@ -48,10 +48,10 @@ sudo apt install python3 python3-venv python3-pip -y
 Aplikasi Flask akan berjalan, dan Anda bisa mengaksesnya melalui browser dengan membuka alamat: http://localhost:5000
 
 
-##Menjalankan Aplikasi Flask Secara Otomatis Saat Reboot dengan systemd
+## Menjalankan Aplikasi Flask Secara Otomatis Saat Reboot dengan systemd
 Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu di-reboot, ikuti langkah-langkah berikut:
 
- ##Buat File Service systemd
+ ## Buat File Service systemd
    Buat file service:
    sudo nano /etc/systemd/system/flask-app.service
    Tambahkan konfigurasi berikut:
@@ -70,12 +70,12 @@ Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu 
    [Install]
    WantedBy=multi-user.target
    
-##Aktifkan dan Jalankan Servis
+## Aktifkan dan Jalankan Servis
    sudo systemctl daemon-reload
    sudo systemctl enable flask-app
    sudo systemctl start flask-app
 
-##Cek Status Servis
+## Cek Status Servis
    sudo systemctl status flask-app
 
 Jika berhasil, status akan terlihat seperti ini:
@@ -84,10 +84,10 @@ Jika berhasil, status akan terlihat seperti ini:
    Active: active (running)
 Jika statusnya "active (running)", berarti aplikasi Anda berhasil diatur untuk berjalan otomatis setelah reboot.
 
-##Lisensi
+## Lisensi
 Proyek ini dilisensikan di bawah MIT License.
 
-##Kontribusi
+## Kontribusi
 Kami sangat menghargai partisipasi dari siapa pun yang ingin membantu proyek ini!
 Jika kamu punya ide, perbaikan, atau ingin menambahkan fitur baru — ayo bergabung!
 Cukup fork repositori ini, lakukan perubahan, dan kirimkan pull request.
