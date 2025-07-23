@@ -51,7 +51,7 @@ Aplikasi Flask akan berjalan, dan Anda bisa mengaksesnya melalui browser dengan 
 ## Menjalankan Aplikasi Flask Secara Otomatis Saat Reboot dengan systemd
 Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu di-reboot, ikuti langkah-langkah berikut:
 
- ## Buat File Service systemd
+ ## 1.Buat File Service systemd
 
    Buat file service:
    ```bash
@@ -73,13 +73,13 @@ Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu 
    [Install]
    WantedBy=multi-user.target
    ```
-## Aktifkan dan Jalankan Servis
+## 2.Aktifkan dan Jalankan Servis
 ```bash
    sudo systemctl daemon-reload
    sudo systemctl enable flask-app
    sudo systemctl start flask-app
 ```
-## Cek Status Servis
+## 3.Cek Status Servis
 ```bash
    sudo systemctl status flask-app
 ```
