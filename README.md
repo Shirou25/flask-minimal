@@ -52,22 +52,44 @@ Aplikasi Flask akan berjalan, dan Anda bisa mengaksesnya melalui browser dengan 
 Menjalankan Aplikasi Flask Secara Otomatis Saat Reboot dengan systemd
 Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu di-reboot, ikuti langkah-langkah berikut:
 
-1. Buat File Service systemd
+ Buat File Service systemd
    Buat file service:
    sudo nano /etc/systemd/system/flask-app.service
    Tambahkan konfigurasi berikut:
    
    [Unit]
-Description=Aplikasi Flask Minimal
-After=network.target
+   Description=Aplikasi Flask Minimal
+   After=network.target
+   
+   [Service]
+   User=ubuntu
+   WorkingDirectory=/home/ubuntu/flask-minimal
+   Environment="PATH=/home/ubuntu/flask-minimal/venv/bin"
+   ExecStart=/home/ubuntu/flask-minimal/venv/bin/python app.py
+   Restart=always
 
-[Service]
-User=ubuntu
-WorkingDirectory=/home/ubuntu/flask-minimal
-Environment="PATH=/home/ubuntu/flask-minimal/venv/bin"
-ExecStart=/home/ubuntu/flask-minimal/venv/bin/python app.py
-Restart=always
+   [Install]
+   WantedBy=multi-user.target
+   
+Aktifkan dan Jalankan Servis
+   sudo systemctl daemon-reload
+   sudo systemctl enable flask-app
+   sudo systemctl start flask-app
 
-[Install]
-WantedBy=multi-user.target
+Cek Status Servis
+   sudo systemctl status flask-app
 
+Jika berhasil, status akan terlihat seperti ini:
+   flask-app.service - Aplikasi Flask Minimal
+   Loaded: loaded (/etc/systemd/system/flask-app.service; enabled; ...)
+   Active: active (running)
+Jika statusnya "active (running)", berarti aplikasi Anda berhasil diatur untuk berjalan otomatis setelah reboot.
+
+Lisensi
+Proyek ini dilisensikan di bawah MIT License.
+
+Kontribusi
+Kami sangat menghargai partisipasi dari siapa pun yang ingin membantu proyek ini!
+Jika kamu punya ide, perbaikan, atau ingin menambahkan fitur baru — ayo bergabung!
+Cukup fork repositori ini, lakukan perubahan, dan kirimkan pull request.
+Mau berdiskusi dulu? Silakan buka issue. Semua masukan sangat kami sambut dengan tangan terbuka.
