@@ -52,11 +52,13 @@ Aplikasi Flask akan berjalan, dan Anda bisa mengaksesnya melalui browser dengan 
 Untuk memastikan aplikasi Flask Anda berjalan otomatis saat instance EC2 Ubuntu di-reboot, ikuti langkah-langkah berikut:
 
  ## Buat File Service systemd
- ```bash
+
    Buat file service:
+   ```bash
    sudo nano /etc/systemd/system/flask-app.service
+```
    Tambahkan konfigurasi berikut:
-   
+   ```bash
    [Unit]
    Description=Aplikasi Flask Minimal
    After=network.target
