@@ -1,45 +1,44 @@
 # flask-minimal
 
-A minimal Flask starter project designed to help you quickly set up a clean, simple, and efficient web application. This project is structured to keep things lightweight and focuses on productivity, with all your code contained in a single file (`app.py`), along with basic templates and static assets.
+Proyek awal Flask yang minimalis untuk membantu Anda dengan cepat membangun aplikasi web yang bersih, sederhana, dan efisien. Proyek ini dirancang agar tetap ringan dan fokus pada produktivitas, dengan seluruh kode berada di satu file (app.py), dilengkapi dengan struktur template dasar dan aset statis.
 
+## Fitur
+- Aplikasi Flask dalam satu file (app.py) untuk kemudahan dan produktivitas maksimal.
+- Struktur template HTML dasar dengan gaya dan JavaScript minimal.
+- Setup proyek yang sederhana dan intuitif tanpa kompleksitas berlebihan.
+- Mudah disesuaikan untuk pengembangan aplikasi web secara cepat.
 
-## Features
-- Single-file Flask application (`app.py`) to maximize productivity and simplicity.
-- Basic HTML template structure with minimal styling and JavaScript.
-- Simple and intuitive project setup with no unnecessary complexity.
-- Easily customizable for rapid development of web applications.
-
-## Preparation
+## Persiapan
 ```bash
 sudo apt update
 sudo apt install python3 python3-venv python3-pip -y
 ```
 
-## Installation
+## Instalasi
 
-1. Clone the repository:
+1. Clone repositori:
    ```bash
    git clone https://github.com/yourusername/flask-minimal.git
    cd flask-minimal
    ```
 
-2. Create a virtual environment (recommended):
+2. Buat virtual environment (disarankan):
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-3. Install the required dependencies:
+3. Instal semua dependensi yang dibutuhkan:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Run the app:
+4. Jalankan aplikasi:
    ```bash
    python app.py
    ```
 
-The Flask app will start, and you can view it by navigating to http://localhost:5000 in your browser.
+Aplikasi Flask akan berjalan, dan Anda bisa mengaksesnya melalui browser dengan membuka alamat: http://localhost:5000
 
 ## Usage
 
